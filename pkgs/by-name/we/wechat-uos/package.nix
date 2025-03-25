@@ -210,6 +210,8 @@ buildFHSEnv {
 
     substituteInPlace $out/share/applications/com.tencent.wechat.desktop \
       --replace-quiet 'Exec=/usr/bin/wechat' "Exec=$out/bin/wechat-uos --"
+    substituteInPlace $out/share/applications/com.tencent.wechat.desktop \
+      --replace-quiet '# END' "# END\nStartupWMClass=wechat"
   '';
   targetPkgs = pkgs: [ wechat-uos-env ];
 
